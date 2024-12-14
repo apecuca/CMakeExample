@@ -10,3 +10,12 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 CMakeUserPresets.json
+
+# Visual studio folder
+.vs/
+
+# Output folder
+out/
+
+# Optional CMake configuration file
+CMakePresets.json
