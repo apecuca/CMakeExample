@@ -1,11 +1,12 @@
-﻿// Header include
-#include "main.hpp"
+﻿// Include app
+#include "App.hpp"
 
 // Entry point
 int main()
 {
-	// Call external function
-	Hello::HelloCMake();
+	// Create object and call Init method
+	App app;
+	app.Init();
 
 	// Finish program :)
 	return 0;

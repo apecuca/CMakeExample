@@ -3,7 +3,8 @@
 #include <iostream>
 
 //
-// I won't be explaining these for obvious reasons
+// I won't be explaining this because 
+// that's not the focus of this project
 //
 
 class Hello
@@ -11,6 +12,6 @@ class Hello
 public:
 	static inline void HelloCMake()
 	{
-		std::cout << "Hello CMake!! It's nice to finally understand you :)\n";
+		std::cout << "Hello CMake!!\nIt's nice to finally understand you :)" << std::endl;
 	}
 };
