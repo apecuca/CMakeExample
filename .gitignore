@@ -14,8 +14,11 @@ CMakeUserPresets.json
 # Visual studio folder
 .vs/
 
-# Output folder
+# VS Output folder
 out/
+
+# CMake build folder
+build/
 
 # Optional CMake configuration file
 CMakePresets.json
