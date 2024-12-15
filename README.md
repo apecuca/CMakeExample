@@ -39,3 +39,4 @@ Below is the step-by-step of building and running the application with CMake.
 ## Sources
 [CMake documentation](https://cmake.org/cmake/help/latest/guide/tutorial/A%20Basic%20Starting%20Point.html) </br>
 [Problem with running on windows](https://stackoverflow.com/questions/39643291/make-without-makefile-after-cmake) </br>
+[CMake Examples](https://github.com/ttroy50/cmake-examples) </br>
