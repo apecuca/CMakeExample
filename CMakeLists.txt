@@ -1,9 +1,8 @@
-﻿# Set the minimum version of CMake that can be used
+﻿# Set the minimum version of CMake that can be used.
 # $ cmake --version
-# make --version
 cmake_minimum_required (VERSION 3.5)
 
-# Set project name
+# Set project name.
 project (CMakeExample)
 
 # Enable Hot Reload for MSVC compilers if supported.
@@ -12,13 +11,16 @@ if (POLICY CMP0141)
   set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
 endif()
 
-# Add executables to project
-add_executable(CMakeExample 
-	src/main.cpp
-)
+# Search the directory tree for all the files that match the pattern.
+# This is an alternative to individually setting all the files with set(source).
+file (GLOB_RECURSE sources src/*.cpp src/*.hpp)
+#file (GLOB_RECURSE data resources/*)
 
-# Set the directories that will be included in the build command
-target_include_directories(CMakeExample
-	PRIVATE
-		${PROJECT_SOURCE_DIR}/include
+# Add the data to the project.
+add_executable(CMakeExample ${sources})
+#add_executable(CMakeExample ${sources} ${data})
+
+# Include files in these directories in the build command.
+target_include_directories(CMakeExample PUBLIC
+	${PROJECT_SOURCE_DIR}/include
 )
