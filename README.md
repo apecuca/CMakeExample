@@ -3,8 +3,9 @@
 This is a very short project I did with the objective of learning how to use CMake. This is knowledge that'll help me in current and future projects. <br/>
 Building this project displays a little message directed to CMake :)
 
-Project file tree:
-```
+The files in this project include:
+```bash
+$ tree
 .
 ├── CMakeLists.txt
 ├── include
@@ -16,33 +17,44 @@ Project file tree:
 ```
 
 ## Building
-Below is the step-by-step of building and running the application with CMake.
+Below is the expected output of generating makefiles with CMake and compiling with MinGW. <br/>
+If you want, you can use a different compiler, but you'll need to specify the generator in the cmake command. I used MinGW because it's easier to setup and it hasn't let me down yet.
 
-1. Create the build directory in the root folder of the project <br/>
-``$ mkdir build``
+```bash
+$ mkdir build
 
-2. Navigate to the build directory <br/>
-``$ cd build``
+$ cd build
 
-3.  Configure the project and generate a native build system <br/>
-``$ cmake ..``
+$ cmake .. -G "MinGW Makefiles"
+-- The C compiler identification is GNU 6.3.0
+-- The CXX compiler identification is GNU 6.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/MinGW/bin/gcc.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/MinGW/bin/c++.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done (2.2s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/dev/projects/CMakeExample/build
 
-5.  Call that build system to actually compile/link the project <br/>
-``$ make``
+$ mingw32-make
+[ 33%] Building CXX object CMakeFiles/CMakeExample.dir/src/App.cpp.obj
+[ 66%] Building CXX object CMakeFiles/CMakeExample.dir/src/main.cpp.obj
+[100%] Linking CXX executable CMakeExample.exe
+[100%] Built target CMakeExample
 
-6.  Try to use the created executable <br/>
-``$ ./CMakeExample``
+$ ./CMakeExample.exe
+Hello CMake!!
+It's nice to finally understand you :)
+```
 
-| Note  | On Windows, CMake generates a MSVC solution by default, so you'll need to add `-G "Unix Makefiles"` to the CMake line on step 3. |
+| Note  | On Windows, CMake generates a MSVC solution by default, so if you want to use a different generator, you need to specify in the cmake command. For example, for the MinGW generator, add `-G "Unix Makefiles"` to the command. |
 | :- |:-|
-
-### If you made changes to the code and want to build again
-The last build configuration is saved, so you can skip the folder creation and follow the steps below.
-
-1. Navigate to the build folder
-2. Run ``$ cmake ..``, even if you are on Windows
-3. Run ``$ make``
-4. Open the executable with ``$ ./CMakeExample``
 
 ## Sources
 [CMake documentation](https://cmake.org/cmake/help/latest/guide/tutorial/A%20Basic%20Starting%20Point.html) </br>
